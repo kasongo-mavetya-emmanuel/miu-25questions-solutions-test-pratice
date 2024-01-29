@@ -149,6 +149,57 @@ public class Miu1 {
         }
         return upCount;
     }
+    //question 9
+    static int countPrimeNumbers(int start, int end){
+        int counterPrime=0;
+        while(start<=end){
+            int counterFactors=0;
+            for(int i=0;i<start;i++){
+                
+                 if(start%(i+1)==0){
+                    counterFactors++;
+                }
+            }
+            if(counterFactors==2){
+                counterPrime++;
+            }                       
+
+            start++;
+        }
+        return counterPrime;
+    }
+    //question 10
+    static int isFancy(int n){
+        int prev1=1;
+        int fancyNum=0;
+        int prev2=1;
+        while(fancyNum<=n){
+            fancyNum= prev1*3+prev2*2;
+            prev2=prev1;
+            prev1=fancyNum;
+            if(fancyNum==n){
+                return 1;
+            }
+        }
+        
+        return 0;
+        
+    }
+    //question 11
+    static int isMeera(int[]a){
+        boolean isNine=false;
+        boolean isOne=false;
+        for(int num: a){
+            if(num==9){
+               isNine=true; 
+            }
+            if(num==1){
+                isOne=true;
+                
+            }
+        }
+        return (isNine&&isOne)?1:0;
+    }
 
 
     public static void main(String[] args) {
@@ -190,8 +241,16 @@ public class Miu1 {
          //question 7
 //         System.out.println(nextSquareElt(30));
          //question 8
-         int[] upCountArr={2,3,1,-6,8,-3,-1,2};
-         System.out.println(upCount(upCountArr,5));
+//         int[] upCountArr={2,3,1,-6,8,-3,-1,2};
+//         System.out.println(upCount(upCountArr,5));
+         //question 9
+//         System.out.println(countPrimeNumbers(10,30));
+         //question 10
+         //System.out.println(isFancy(17));
+         //question11
+         int[] arrMeera={7,9,0,10,1};
+         System.out.println(isMeera(arrMeera));
+         
 
         
 
