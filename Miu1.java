@@ -4,6 +4,8 @@
 
 package com.mycompany.miu1;
 import java.util.Arrays;
+import java.lang.Math; 
+
 
 
 
@@ -96,6 +98,7 @@ public class Miu1 {
             
     }
     
+    //question 6
     static int findPOE(int[] arr){
         int totalSum=0;
         int n= arr.length;
@@ -116,6 +119,35 @@ public class Miu1 {
             leftSum+=arr[i];
         }
         return -1;
+    }
+    //question 7
+    static int nextSquareElt(int n){
+        int root;
+        
+        if(n<0){
+            root=(int) Math.floor(Math.sqrt(-n));
+            return -root*root;
+            
+        }
+        else{
+            root=(int) Math.ceil(Math.sqrt(n));  
+                  return root*root;  
+        }
+         
+        
+      
+    }
+    //question 8
+    static int upCount(int[]a,int n){
+        int totalSum=0;
+        int upCount=0;
+        for(int num:a){
+            totalSum+=num;
+            if(totalSum>n){
+                upCount++;
+            }  
+        }
+        return upCount;
     }
 
 
@@ -153,10 +185,13 @@ public class Miu1 {
 //        
 //        System.out.println(Arrays.toString(result));
          //question 6
-         int[] findPoeArr={1, 8, 3, 7, 10, 2};
-         System.out.println(findPOE(findPoeArr));
-
-
+//         int[] findPoeArr={1, 8, 3, 7, 10, 2};
+//         System.out.println(findPOE(findPoeArr));
+         //question 7
+//         System.out.println(nextSquareElt(30));
+         //question 8
+         int[] upCountArr={2,3,1,-6,8,-3,-1,2};
+         System.out.println(upCount(upCountArr,5));
 
         
 
