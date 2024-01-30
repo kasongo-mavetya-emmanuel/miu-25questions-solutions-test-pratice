@@ -213,6 +213,8 @@ public class Miu1 {
         }
         return 1;
     }
+    //question 13 
+    //TODO:TO BE DONE
 
 
     public static void main(String[] args) {
@@ -264,7 +266,7 @@ public class Miu1 {
          //int[] arrMeera={7,9,0,10,1};
          //System.out.println(isMeera(arrMeera));
          //question12
-         int[] arrBean={3,8,4};
+         int[] arrBean={7,7,3,6};
          System.out.println(isBean(arrBean));
          
 
