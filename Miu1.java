@@ -200,6 +200,19 @@ public class Miu1 {
         }
         return (isNine&&isOne)?1:0;
     }
+    //question 12
+    static int isBean(int[] arr){
+        for(int num:arr){
+            for(int i=0;i<arr.length;i++){
+                if(arr[i]==(2*num)||arr[i]==((2*num)+1)||num/2==arr[i]){
+                  
+                    break;           
+                }  
+                if(i==arr.length-1)return 0;
+            }
+        }
+        return 1;
+    }
 
 
     public static void main(String[] args) {
@@ -248,8 +261,11 @@ public class Miu1 {
          //question 10
          //System.out.println(isFancy(17));
          //question11
-         int[] arrMeera={7,9,0,10,1};
-         System.out.println(isMeera(arrMeera));
+         //int[] arrMeera={7,9,0,10,1};
+         //System.out.println(isMeera(arrMeera));
+         //question12
+         int[] arrBean={3,8,4};
+         System.out.println(isBean(arrBean));
          
 
         
