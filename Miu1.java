@@ -266,6 +266,24 @@ public class Miu1 {
          
          return currKey;
     }
+    //question 15
+    static int evenAndSum(int[]arr){
+        int leftSum=0;
+        int rightSum=0;
+        if(arr.length%2!=0){
+            return 0;
+        }
+        for(int i=0;i<arr.length;i++){
+            if(i<=((arr.length/2)-1)){
+                leftSum+=arr[i];
+            }
+            else{
+                rightSum+=arr[i];
+            }
+        }
+        
+        return (leftSum==rightSum)?1:0;
+    }
 
 
     public static void main(String[] args) {
@@ -322,8 +340,11 @@ public class Miu1 {
          //question13
          //System.out.println(twoSquares(50));
          //question 14
-         int[] mostOccNumArr={7,7,3,3,6};
-         System.out.println(mostOccNumber(mostOccNumArr));
+         //int[] mostOccNumArr={7,7,3,3,6};
+         //System.out.println(mostOccNumber(mostOccNumArr));
+         //question 14
+         int[] evenAndSumArr= {5,4,3,2,3,4,6,1};
+         System.out.println(evenAndSum(evenAndSumArr));
          
          
 
