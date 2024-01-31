@@ -130,7 +130,7 @@ public class Miu1 {
             
         }
         else{
-            root=(int) Math.ceil(Math.sqrt(n));  
+            root=(int) Math.ceil(Math.sqrt(n)); 
                   return root*root;  
         }
          
@@ -214,7 +214,31 @@ public class Miu1 {
         return 1;
     }
     //question 13 
-    //TODO:TO BE DONE
+    static int twoSquares(int n){
+        int ct=0;
+        for(int i=2;(i*i)<n;i++){
+            
+            int a=n-i*i;    
+            
+            int j=(int) Math.sqrt(a);
+          
+           
+            if((j*j)==a){   
+                System.out.println(i);
+                 ct++;
+               
+               
+            }
+            
+            if(ct>2){
+                return 0;
+            }
+        }
+        
+        
+        return ct==2?1:0;
+        
+    }
 
 
     public static void main(String[] args) {
@@ -266,8 +290,10 @@ public class Miu1 {
          //int[] arrMeera={7,9,0,10,1};
          //System.out.println(isMeera(arrMeera));
          //question12
-         int[] arrBean={7,7,3,6};
-         System.out.println(isBean(arrBean));
+         //int[] arrBean={7,7,3,6};
+         //System.out.println(isBean(arrBean));
+         //question13
+         //System.out.println(twoSquares(50));
          
 
         
