@@ -5,6 +5,7 @@
 package com.mycompany.miu1;
 import java.util.Arrays;
 import java.lang.Math; 
+import java.util.*;
 
 
 
@@ -239,6 +240,32 @@ public class Miu1 {
         return ct==2?1:0;
         
     }
+    //question 14
+    static int mostOccNumber(int[] arr){
+        int currVal=0;
+        int currKey=0;
+         Map<Integer, Integer> hm 
+            = new HashMap<>();
+         for(int i=0;i<arr.length;i++){
+             if(hm.containsKey(arr[i])){
+                 int val=hm.get(arr[i]);
+                 hm.put(arr[i],val+1);
+             }
+             else{
+                 hm.put(arr[i], 1);
+             }
+         }
+         
+         for(Map.Entry<Integer, Integer> e: hm.entrySet()){
+           
+             if(e.getValue()>currVal){
+                 currVal=e.getValue();
+                 currKey=e.getKey();
+             }
+         }
+         
+         return currKey;
+    }
 
 
     public static void main(String[] args) {
@@ -294,6 +321,10 @@ public class Miu1 {
          //System.out.println(isBean(arrBean));
          //question13
          //System.out.println(twoSquares(50));
+         //question 14
+         int[] mostOccNumArr={7,7,3,3,6};
+         System.out.println(mostOccNumber(mostOccNumArr));
+         
          
 
         
