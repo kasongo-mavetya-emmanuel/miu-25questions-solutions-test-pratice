@@ -284,6 +284,70 @@ public class Miu1 {
         
         return (leftSum==rightSum)?1:0;
     }
+    //question 16
+    static int isMadhavArray(int[] arr){
+        int n=1;
+        int con=0;
+       
+        
+        while(con<arr.length){
+            int currentSum=0;
+            for(int i=con;i<con+n;i++){
+                currentSum+=arr[i];
+            }
+            
+            if(currentSum!=arr[0]){
+                return 0;
+            }
+           
+            con+=n;
+            n++;
+            
+        }
+        
+        return 1;
+    }
+    //question 17
+    static int inertial(int[] arr){
+        int hasOddsCount=0;
+        int hasEvenCount=0;
+        int max=arr[0];
+        int minOdd=0;
+        int maxEven=0;
+        for(int num: arr){
+            int val= num<0?-num:num;
+             if(val>max){
+                max=val;
+            }
+        }
+        for(int i=0;i<arr.length;i++){
+            int val=arr[i]<0?-arr[i]:arr[i];
+            if(val%2!=0){
+                hasOddsCount++;
+                if(hasOddsCount==1){
+                    minOdd=val;
+                }
+                if(val<minOdd){
+                    minOdd=val;
+                }
+            }
+            if(val%2==0){
+                hasEvenCount++;
+                if(hasEvenCount==1 && val!= max){
+                    maxEven=val;
+                }
+                
+                if(val>maxEven && val!= max){                 
+                    maxEven=val;
+                }
+            }
+        }
+        System.out.println(hasOddsCount);
+         System.out.println(max);
+          System.out.println(maxEven);
+           System.out.println(minOdd);
+        return (hasOddsCount>=1&&(max%2==0)&&maxEven<minOdd)?1:0;
+    }
 
 
     public static void main(String[] args) {
@@ -342,9 +406,15 @@ public class Miu1 {
          //question 14
          //int[] mostOccNumArr={7,7,3,3,6};
          //System.out.println(mostOccNumber(mostOccNumArr));
-         //question 14
-         int[] evenAndSumArr= {5,4,3,2,3,4,6,1};
-         System.out.println(evenAndSum(evenAndSumArr));
+         //question 15
+         //int[] evenAndSumArr= {5,4,3,2,3,4,6,1};
+         //System.out.println(evenAndSum(evenAndSumArr));
+         //question 16
+         //int[] madhavArr= {0,0,0,0,0,0,0,0,0,0,1,1,1,-2,-1};
+         //System.out.println(isMadhavArray(madhavArr));
+         //question 17            
+         int[] inertialArr= {2,12,4,6,8,11};
+         System.out.println(inertial(inertialArr));
          
          
 
