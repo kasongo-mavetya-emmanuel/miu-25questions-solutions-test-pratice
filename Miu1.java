@@ -348,6 +348,70 @@ public class Miu1 {
            System.out.println(minOdd);
         return (hasOddsCount>=1&&(max%2==0)&&maxEven<minOdd)?1:0;
     }
+    
+    //question 18
+    static int countSquarePairs(int[]arr){
+        int countPair=0;
+        if(arr.length==1){
+            return 0;
+        }
+        for(int val:arr){
+            for(int num:arr){
+               int pair=val+num;
+               int j=(int) Math.sqrt(pair);
+               if(j*j==pair){
+                   if(val<num && num>0 && val>0){
+                       countPair++;
+                   }
+               }
+            }
+        }
+        return countPair;
+    }
+    //question 19
+    static int findPorcupineNumber(int num){
+        int n=num+1;
+        int nextPrimeNum=n;
+        int currentPrimeNum=n;
+        int count=0;
+        while(true){
+            if(isPrime(n)){
+                count++;
+                if(count==1){
+                    currentPrimeNum=n;
+                }
+                if(count==2){
+                    nextPrimeNum=n;
+                     count=0;
+                }
+                if(nextPrimeNum%10==9 && currentPrimeNum%10==9){
+                    System.out.println(nextPrimeNum%10+""+nextPrimeNum+""+currentPrimeNum);
+                    return 1;
+                }
+               
+            }
+            
+          
+            
+           if(n>=10000){
+               break;
+           }
+            n++;
+        }
+       return 0; 
+        
+    }
+    
+    private static boolean isPrime(int n){
+        if(n<=1)return false;
+        for(int i=2;i<=Math.sqrt(n);i++){
+            if(n%i==0){
+                return false;
+            }
+            
+        }
+        return true;
+    }
 
 
     public static void main(String[] args) {
@@ -413,8 +477,13 @@ public class Miu1 {
          //int[] madhavArr= {0,0,0,0,0,0,0,0,0,0,1,1,1,-2,-1};
          //System.out.println(isMadhavArray(madhavArr));
          //question 17            
-         int[] inertialArr= {2,12,4,6,8,11};
-         System.out.println(inertial(inertialArr));
+         //int[] inertialArr= {2,12,4,6,8,11};
+         //System.out.println(inertial(inertialArr));
+         //question 18
+         //int[] countSquarePairsArr={9,0,2,-5,7};
+         //System.out.println(countSquarePairs(countSquarePairsArr));
+         //question 19
+         System.out.println(findPorcupineNumber(0));
          
          
 
