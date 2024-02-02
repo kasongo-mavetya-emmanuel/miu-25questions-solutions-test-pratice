@@ -514,13 +514,38 @@ public class Miu1 {
              for(int j=i+1; j<arr.length;j++){
                  totalSum+=arr[j];
              }
-              System.out.println(arr[i]+"   "+totalSum);
+             
             if(arr[i]<=totalSum){
                 return 0;
             }   
             
         }
       
+        return 1;
+    }
+    
+    //question 25
+    static int isSym(int[] arr){
+        String[] resultArr=new String[arr.length];
+        for(int i=0;i<arr.length;i++){
+           if(arr[i]%2==0){
+              resultArr[i]="even";  
+           }else{
+                resultArr[i]="odd";                  
+            }
+        }
+        for(int j=arr.length-1,i=0; j>=0;j--){
+           
+             
+            if(arr[j]%2!=0 && !resultArr[i].equals("odd")){
+                
+                return 0;
+            }
+            if(arr[j]%2==0 && !resultArr[i].equals("even")){
+                return 0;
+            }
+            i++;
+        }
         return 1;
     }
 
@@ -608,13 +633,16 @@ public class Miu1 {
          //int[] evenSpacedArr={100,19,-131,-140};
          //System.out.println(evenSpaced(evenSpacedArr));
          //question 24
-         int[] subArrayArr={13,6,3,2};
-         System.out.println(subArray(subArrayArr));
+         //int[] subArrayArr={13,6,3,2};
+         //System.out.println(subArray(subArrayArr));
+         //question 25
+         int[] isSymArr={9,8,7,13,14,17};
+         System.out.println(isSym(isSymArr));
          
         
          
          
-         
+     
 
         
 
