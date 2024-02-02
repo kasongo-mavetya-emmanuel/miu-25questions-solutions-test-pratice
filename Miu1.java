@@ -487,6 +487,42 @@ public class Miu1 {
         return count;
         
     }
+    //question 23
+    static int evenSpaced(int[] arr){
+        int max=arr[0];
+        int min=arr[0];
+        for(int num: arr){
+            if(num>max){
+              max=num;  
+            }else{
+               min=num; 
+            }
+        }
+        int total=max-min;
+        System.out.println(total);
+        return (total%2==0)?1:0;
+        
+    }
+    //question 24
+    static int subArray(int[] arr){
+        
+        int totalSum=0;
+        
+        
+        for(int i=0;i<arr.length;i++){
+            totalSum=0;
+             for(int j=i+1; j<arr.length;j++){
+                 totalSum+=arr[j];
+             }
+              System.out.println(arr[i]+"   "+totalSum);
+            if(arr[i]<=totalSum){
+                return 0;
+            }   
+            
+        }
+      
+        return 1;
+    }
 
 
     public static void main(String[] args) {
@@ -566,8 +602,15 @@ public class Miu1 {
          //int[] stanlonArr={1,3,1,1,3,3,2,3,3,3,4};
          //System.out.println(stanlon(stanlonArr));
          //question 22
-         int[] sumFactorArr={0,0,0};
-         System.out.println(sumFactor(sumFactorArr));
+         //int[] sumFactorArr={3,0,2,-5,0};
+         //System.out.println(sumFactor(sumFactorArr));
+         //question 23
+         //int[] evenSpacedArr={100,19,-131,-140};
+         //System.out.println(evenSpaced(evenSpacedArr));
+         //question 24
+         int[] subArrayArr={13,6,3,2};
+         System.out.println(subArray(subArrayArr));
+         
         
          
          
