@@ -471,6 +471,22 @@ public class Miu1 {
         return n;
         
     }
+    //question 22
+    static int sumFactor(int[] arr){
+        int count=0;
+        int sum=0;
+        for(int val:arr){
+           sum+=val;
+        }
+        for(int num:arr){
+            if(num==sum){
+                count++;
+            }
+        }
+        
+        return count;
+        
+    }
 
 
     public static void main(String[] args) {
@@ -547,8 +563,11 @@ public class Miu1 {
          //int[] guthrieArr={8,4,2,1};
          //System.out.println(guthrie(guthrieArr));
          //question 21
-         int[] stanlonArr={3,1,1,4};
-         System.out.println(stanlon(stanlonArr));
+         //int[] stanlonArr={1,3,1,1,3,3,2,3,3,3,4};
+         //System.out.println(stanlon(stanlonArr));
+         //question 22
+         int[] sumFactorArr={0,0,0};
+         System.out.println(sumFactor(sumFactorArr));
         
          
          
