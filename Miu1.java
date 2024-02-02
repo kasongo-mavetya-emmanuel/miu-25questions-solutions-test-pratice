@@ -402,6 +402,7 @@ public class Miu1 {
         
     }
     
+    
     private static boolean isPrime(int n){
         if(n<=1)return false;
         for(int i=2;i<=Math.sqrt(n);i++){
@@ -411,6 +412,64 @@ public class Miu1 {
             
         }
         return true;
+    }
+    
+    //question 20
+    static int guthrie(int[] arr){
+        int curr=0;
+        for(int i=0; i<arr.length;i++){
+            if(arr[i]%2==0){
+                curr=arr[i]/2;
+               if(i+1<arr.length){
+                   
+                    if(curr!=arr[i+1]){
+                    return 0;
+                }
+               
+               }
+              
+                if(i+1==arr.length-1 && curr!=1){
+                    
+                    return 0;
+                }
+               
+                
+            }else{
+                curr=(arr[i]*3)+1;
+                if(i+1<arr.length){
+                   
+                    if(curr!=arr[i+1]){
+                    return 0;
+                }
+                 
+                }
+                if(i+1==arr.length-1 && curr!=1){
+                    
+
+                    return 0;
+                }
+            }
+        }
+        return 1;
+    }
+    
+    //question 21
+    static int stanlon(int[] arr){
+        int count=0;
+        int n=0;
+        for(int val:arr){
+            if(val==1){
+                count++;
+            }
+        }
+        for(int num:arr){
+            if(num==count){
+                n++;
+            }
+        }
+        
+        return n;
+        
     }
 
 
@@ -483,7 +542,15 @@ public class Miu1 {
          //int[] countSquarePairsArr={9,0,2,-5,7};
          //System.out.println(countSquarePairs(countSquarePairsArr));
          //question 19
-         System.out.println(findPorcupineNumber(0));
+         //System.out.println(findPorcupineNumber(0));
+         //question 20
+         //int[] guthrieArr={8,4,2,1};
+         //System.out.println(guthrie(guthrieArr));
+         //question 21
+         int[] stanlonArr={3,1,1,4};
+         System.out.println(stanlon(stanlonArr));
+        
+         
          
          
 
