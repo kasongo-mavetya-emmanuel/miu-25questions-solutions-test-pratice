@@ -548,6 +548,72 @@ public class Miu1 {
         }
         return 1;
     }
+    
+    //Other Questions
+    //collection questions Nepal test
+    //question 1
+    static int isEvenNumber(int n){
+        while(n!=0){
+            int lastDigit= n%10;
+            if(lastDigit%2!=0)return 0;
+            n=n/10;
+        }
+            
+     return 1;
+    }
+    
+    static int isMagicalArray(int[] arr){
+        int primeSum=0;
+        for(int i=1; i<arr.length;i++){
+            if(isPrime(arr[i])){
+                primeSum+=arr[i];
+            }
+         
+        }
+        System.out.println(primeSum);
+        return (primeSum==arr[0])?1:0;
+    }
+    //question 3
+    static int isCompleteArray(int[] arr){
+        int min=arr[0];
+        int max=arr[0];
+        int countFirstEven=0;
+        for(int i=0;i<arr.length;i++){
+           if(arr[i]%2==0){
+               countFirstEven++;
+               if(countFirstEven==1){
+                   min=arr[i];
+                   max=arr[i];
+               }
+                if(arr[i]>max){
+                max=arr[i];
+            }
+                
+            if(arr[i]<min){
+                min=arr[i];
+            }
+           }
+        }
+         System.out.println(min+" "+max+" ");
+        
+        if(min==max|| min%2!=0 || max%2!=0)return 0;
+        int count=0;
+        for(int i=min+1;i<max;i++){
+            for(int val:arr){
+                if(val==i){
+                    count++;
+                }
+            }
+        }
+         System.out.println(min+" "+max+" "+count+" "+(max-min));
+       
+        if(count!=(max-min-1))return 0;
+        
+        return 1;
+        
+        
+    
+    }
 
 
     public static void main(String[] args) {
@@ -636,8 +702,18 @@ public class Miu1 {
          //int[] subArrayArr={13,6,3,2};
          //System.out.println(subArray(subArrayArr));
          //question 25
-         int[] isSymArr={9,8,7,13,14,17};
-         System.out.println(isSym(isSymArr));
+         //int[] isSymArr={9,8,7,13,14,17};
+         //System.out.println(isSym(isSymArr));
+         
+         //other qestions collection nepal
+         //question 1
+         //System.out.println(isEvenNumber(846));
+         //question 2
+         //int[] magicalArr={10, 5, 5};
+         //System.out.println(isMagicalArray(magicalArr));
+         //question 3
+         int[] completeArr={5, 7, 9, 13} ;
+         System.out.println(isCompleteArray(completeArr));
          
         
          
