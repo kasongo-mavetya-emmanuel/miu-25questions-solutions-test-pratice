@@ -614,6 +614,137 @@ public class Miu1 {
         
     
     }
+    
+    //test
+    //q1
+    public static int hasNValues(int[] a, int n) {
+      
+        HashSet<Integer> uniqueValues = new HashSet<>();
+
+        for (int num : a) {
+            uniqueValues.add(num);
+
+           
+            if (uniqueValues.size() > n) {
+                return 0;
+            }
+        }
+
+       
+        return 1;
+    }
+    
+    //q2
+    public static int is121Array(int[] a) {
+        int len = a.length;
+
+        // Check if the array is empty
+        if (len == 0) {
+            return 0;
+        }
+
+        // Check if the first element is 1
+        if (a[0] != 1 || a[len-1]!=1) {
+            return 0;
+        }
+
+        // Check if the array contains only 1s and 2s
+        for (int num : a) {
+            if (num != 1 && num != 2) {
+                return 0;
+            }
+        }
+
+        // Check if the array is a 121 array
+        
+
+        int i = 0;
+        while (i < len && a[i] == 1) {
+            i++;
+        }
+
+        //System.out.println(i);
+        if (i >= len || a[i] != 2) {
+            return 0;
+        }
+
+        // Check if the array ends with the same number of 1s as it begins with
+        int j = len - 1;
+        while (j >= 0 && a[j] == 1) {
+            
+            j--;
+        }
+        
+        //System.out.println(i+" "+j+" "+(len-1-j)+" "+len);
+        if(i!=len-1-j){
+           return 0; 
+        }
+        
+       while(i<j){
+           if(a[i]!=2){
+              return 0;
+           }
+           
+           i++;
+       }
+
+        return 1;
+
+        // Check if the number of 1s at the end equals the number of 1s at the beginning
+       // return onesCount == twosCount ? 1 : 0;
+    }
+    
+     public static int isMercurial(int[] a) {
+        int len = a.length;
+
+        if (len == 0) {
+            return 1; 
+        }
+        if(len==1 && a[0]==1){
+            return 1;
+        }
+        HashSet<Integer> threesIdx = new HashSet<>();
+        
+        int onesLeftCount=0;
+        int onesRightCount=0;
+        
+        // Check if the array contains only 1s, 2s, and 3s
+        for (int i=0; i<len;i++) {
+            int num=a[i];
+            if(num==3){
+                threesIdx.add(i);
+            }     
+        }
+        if(threesIdx.isEmpty()){
+            return 0;
+        }
+        for(int idx: threesIdx){
+             onesLeftCount=0;
+             onesRightCount=0;
+            for (int i=0; i<idx;i++) {
+            if(a[i]==1){
+                onesLeftCount++;
+                break;
+            }           
+        }
+         for (int i=idx+1; i<len;i++) {
+            if(a[i]==1){
+                onesRightCount++;
+                break;
+            }
+            
+        }
+         
+         if(onesLeftCount>0 && onesRightCount>0){
+             return 0;
+         }
+         
+        }
+         
+         
+        return 1; // It's a Mercurial array
+    }
+
 
 
     public static void main(String[] args) {
@@ -712,8 +843,50 @@ public class Miu1 {
          //int[] magicalArr={10, 5, 5};
          //System.out.println(isMagicalArray(magicalArr));
          //question 3
-         int[] completeArr={5, 7, 9, 13} ;
-         System.out.println(isCompleteArray(completeArr));
+         //int[] completeArr={5, 7, 9, 13} ;
+         //System.out.println(isCompleteArray(completeArr));
+         //int[] array2 = {1, 2, 3, 4, 5};
+
+        //System.out.println(hasNValues(array2, 5));
+//        int[] array1 = {1, 2, 1}; // 121 array
+//        int[] array2 = {1, 1, 2, 2, 2, 1, 1}; // 121 array
+//        int[] array3 = {1, 1, 2, 2, 2, 1, 1, 1}; // Not a 121 array
+//        int[] array4 = {1, 1, 2, 1, 2, 1, 1}; // Not a 121 array
+//        int[] array5 = {1, 1, 1, 2, 2, 2, 1, 1, 1, 3}; // Not a 121 array
+//        int[] array6 = {1, 1, 1, 1, 1, 1}; // Not a 121 array
+//        int[] array7 = {2, 2, 2, 1, 1, 1, 2, 2, 2, 1, 1}; // Not a 121 array
+//        int[] array8 = {1, 1, 1, 2, 2, 2, 1, 1, 2, 2}; // Not a 121 array
+//        int[] array9 = {2, 2, 2}; // Not a 121 array
+//
+//        System.out.println(is121Array(array1)); // Output: 1
+//        System.out.println(is121Array(array2)); // Output: 1
+//        System.out.println(is121Array(array3)); // Output: 0
+//        System.out.println(is121Array(array4)); // Output: 0
+//        System.out.println(is121Array(array5)); // Output: 0
+//        System.out.println(is121Array(array6)); // Output: 0
+//        System.out.println(is121Array(array7)); // Output: 0
+//        System.out.println(is121Array(array8)); // Output: 0
+//        System.out.println(is121Array(array9)); // Output: 0
+           // Example usage:
+        int[] array1 = {1, 2, 10, 3, 15, 1, 2, 2}; // Not a Mercurial array
+        int[] array2 = {5, 2, 10, 3, 15, 1, 2, 2}; // Mercurial array
+        int[] array3 = {1, 2, 10, 3, 15, 16, 2, 2}; // Mercurial array
+        int[] array4 = {3, 2, 18, 1, 0, 3, -11, 1, 3}; // Not a Mercurial array
+        int[] array5 = {2, 3, 1, 1, 18}; // Mercurial array
+        int[] array6 = {8, 2, 1, 1, 18, 3, 5}; // Mercurial array
+        int[] array7 = {3, 3, 3, 3, 3, 3}; // Mercurial array
+        int[] array8 = {1}; // Mercurial array
+        int[] array9 = {}; // Mercurial array
+
+        System.out.println(isMercurial(array1)); // Output: 0
+        System.out.println(isMercurial(array2)); // Output: 1
+        System.out.println(isMercurial(array3)); // Output: 1
+        System.out.println(isMercurial(array4)); // Output: 0
+        System.out.println(isMercurial(array5)); // Output: 1
+        System.out.println(isMercurial(array6)); // Output: 1
+        System.out.println(isMercurial(array7)); // Output: 1
+        System.out.println(isMercurial(array8)); // Output: 1
+        System.out.println(isMercurial(array9)); // Output: 1
          
         
          
